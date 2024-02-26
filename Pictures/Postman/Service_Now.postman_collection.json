@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "74232cef-4c6e-4e93-b683-d02af5b8f6fc",
+		"name": "Service_Now",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10347963",
+		"_collection_link": "https://dark-resonance-772864.postman.co/workspace/TestLeaf_API~77452ca8-0dc9-4af4-b8cb-a81727cf9f09/collection/10347963-74232cef-4c6e-4e93-b683-d02af5b8f6fc?action=share&source=collection_link&creator=10347963"
+	},
+	"item": [
+		{
+			"name": "Get Request",
+			"item": [
+				{
+					"name": "Get all the incidents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the incidents With Pagination Header",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?sysparm_suppress_pagination_header=true",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_suppress_pagination_header",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the incidents Display Value",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?sysparm_display_value=all",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_display_value",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the incidents Display Value true",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?sysparm_display_value=true",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_display_value",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the incidents Resolved By",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();",
+									"console.log(response.result[0].resolved_by.link);",
+									"",
+									"pm.test(\"Verify the Fields\", function(){",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?sysparm_fields=resolved_by",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_fields",
+									"value": "resolved_by"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the incidents Filtering with Number",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?sysparm_fields=number",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_fields",
+									"value": "number"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the incidents Filtering with SysID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?sysparm_fields=sys_id",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_fields",
+									"value": "sys_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the incidents Filtering with Sysid and number",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var resultData = pm.response.json();",
+									"let sysId = resultData.result[0].sys_id;",
+									"let numberId = resultData.result[0].number;",
+									"let max = resultData.result.length;",
+									"let min = 0;",
+									"let diff =max - min ;",
+									"let math = Math.floor((Math.random() * diff ) + min);",
+									"",
+									"Math.random ",
+									"console.log(sysId);",
+									"console.log(numberId);",
+									"console.log(math);",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident?sysparm_fields=sys_id, number&sysparm_limit=10&sysparm_no_count=true",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_fields",
+									"value": "sys_id, number"
+								},
+								{
+									"key": "sysparm_limit",
+									"value": "10"
+								},
+								{
+									"key": "sysparm_no_count",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "eD9EG/jr%s3M",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Create an Incident",
+			"item": [
+				{
+					"name": "Create an Incident",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"caller_id\": \"Abel Tuter\", \n    \"short_description\": \"My Desktop is not working\",\n    \"impact\": \"1\",\n    \"urgency\":\"1\"\n   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev209228.service-now.com/api/now/table/incident",
+							"protocol": "https",
+							"host": [
+								"dev209228",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "eD9EG/jr%s3M",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "tablename",
+			"value": "incident",
+			"type": "string"
+		}
+	]
+}

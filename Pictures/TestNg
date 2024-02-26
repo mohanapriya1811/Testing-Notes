@@ -1,0 +1,173 @@
+TestNG:
+------
+
+    TestNG: Test Execution Framework which is used to execute our testcases
+    
+    Why?:   To support test configuration using attributes and anotations
+    ----    To support test execution status
+            To control the flow of execution
+
+    How?:   TestNG Dependendy : Editor
+    ----    TestNG Plugin: For Execution
+
+
+Features of TestNG:
+------------------
+
+    - Supports to run many testcases at a time
+    - Supports Sequential and Parallel Execution
+    - Supports Test Execution Status and Reports -- Index.html Emailable Report and html report
+    - Configure the Testcases using attributes and annotations
+    - Control the Flow of Execution using annotations
+    - To rerun the failed testcases
+    - To support Data Driven Testing
+    - To support Cross Browser Testing
+    - Categorize Test Cases as Groups
+    - Assertion
+
+TestNG Sequential:
+-----------------
+    <suite name="sequential" />
+        <test name="execute_sql"/>
+            <classes>
+                <class name = "package.classOne"/>
+                <class name = "package.classTwo"/>
+            </classes>
+        </test>
+    </suite>
+
+
+TestNG Parallel:
+-------------
+
+ <suite name="parallel" />  //parallel="test" / "methods"
+        <test name="execute_sql" parallel = "classes"/>
+            <classes>
+                <class name = "package.classOne"/>
+                <class name = "package.classTwo"/>
+            </classes>
+        </test>
+    </suite>
+
+TestNG Verbose and ThreadCount:
+--------------------------------
+
+     <suite name="sequential" thread-count="5" verbose="5"/>
+        <test name="execute_sql"/>
+            <classes>
+                <class name = "package.classOne"/>
+                <class name = "package.classTwo"/>
+            </classes>
+        </test>
+    </suite>
+
+Default threadcount = 5     // no of browsers to be opened when exection of tcs parallely
+Default Verbose     = 0     // To provide the amount of log should be shown 0 min 5 mid 10 max
+
+
+Reports:
+---------
+
+html report:
+emailable report
+index.html
+xml report
+
+Annotations:
+------------
+
+    Runs the Tcs as per the XML tag..
+
+    @BeforeSuite    
+        @BeforeTest 
+            @BeforeClass    -- Let's suppose we have this in Parent and Child class what happens?
+                                Firstly it will check whether the child class @BeforeClass will check the parant class
+                @DataProvider
+                    @BeforeMethod  --- Before Each Test Method
+                        @Test   
+                    @AfterMethod   --- After Each Test Method
+                @AfterClass
+            @AftterTest
+        @AfterSuite
+    
+
+    @BeforeSuite -- will be run before all tests within the suite have run
+    <suite name = "validation" />
+        @BeforeTest - will be run before all test methods within the class tag have run run 
+        <test name = "TestOne" />
+            @BeforeClass  - will be run 
+            <classes>
+                <class name = "testOne.classOne" />
+                <class name = "testOne.classTwo" />
+            </classes>
+        </test>
+        
+        <test name="TestTwo />
+            <classes>
+                <class name = "testOne.classOne" />
+                <class name = "testOne.classTwo" />
+            </classes>
+        </test>
+
+    </suite>
+            
+
+
+Attributes:
+
+priority: Used to control the order of execution least priority runs first
+--------  Default : 0
+          Type: int 
+          Follows: Lexicographically Order
+          Two methods with Same Priority will be run as per Dictionary Order
+
+enabled:
+--------
+        Default is false
+        To ignore a tc from the execution we use this attribute
+        @Test(enabled = true)
+        Type: boolean
+invocationCount:
+---------------
+        Default: 1
+        Type: int
+        No of times a tc needs to be executed
+        @Test(invocationCount = 2)
+
+threadPoolSize:
+---------------
+          Default: 1
+          Type: int
+          No of browsers to be opened 
+          @Test(threadPoolSize = 3); dependOn invocationCount
+dependsOnMethods:
+----------------
+
+        Test Case depends on the Other Test Case If login fails no point of checking other things
+        @Test(dependsOnMethods = {"packageName.className.methodName"})
+        Default : {}
+        Type: String Array
+
+dependsOnGroups:
+-------------
+        @Test(groups = {"Regression" "Smoke"}
+         Default : {}
+        Type: String Array
+        @Test(dependsONGroups = {"Smoke"})
+        
+    If one fails, the depended tc will be skipped
+
+alwaysRun:
+----------
+        @Test(alwaysRun = true)
+        Default = false;
+        When a TestCase depends on another Testcase if that testcase fails another Testcase gets skipped
+        In order to run the testcase irrespective of the status
+        Type: boolean
+        
+        
+        
+            
+    
+
+ 

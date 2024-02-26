@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class FirstJavaKunal{
+
+    static boolean oddOrEven(int num){
+        if(num%2)
+            return true;
+        else
+        return false;
+    }
+
+        
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    int num = sc.nextInt();
+
+    oddOrEven(num);
+}
+}
+
