@@ -1,0 +1,94 @@
+API:
+---
+
+    Application Programming Interface:
+    ---------------------------------
+            - API sends a Request gets a Response From Database
+            - Hotel -----> Waiter---------> Chef
+              Client       API              Server
+
+            - BookMyShow (API Request) ------------- Satyam Cinemas
+                                       ------------- PVR Cinemas   
+
+    Postman:  API Development
+    Rest Assured: For Testing an API using Framework
+    Swagger/Postman: API Documentation
+
+Why API Automation is growing in demand?
+----------------------------------------
+    ---API Based Apps   ---> Is it practically possible to test all functionalities manually? 
+
+                        Amazon:
+                            Mobile: UI Differs  Functionalities are Same driven by API  (Testing the API is comparatively than UI)
+                            Chrome: UI Differs
+
+    ---Faster          ---> In Selenium     --------- There is no rendering UI not involved -- API Running Behind the UI
+                                Chromium WebKit
+                                 Host Process
+                                Application (Host Process)
+                                Application (Render Process)
+                               ---------------------------- API Boundary
+                                WebKit
+                                WebCore
+                                JS Engine
+                                Render Process
+
+    ---Easy and Isolated    Browser Specific , Elements Challenges
+    ---Less Failures    Directly Used    
+    ---Easy Data Generation - Fraction of Second can create data
+    
+MICohn's:
+--------
+
+        
+
+                       UI Automation/   30-40 %
+                       Service Test/    60 - 70%
+                        Unit Test/      
+                
+
+Architecture:
+------------
+        REST    --- Respresentation State Transfer  -- Less Data Intensive Between two WebServices
+        GraphQL --- Graphical Query Language  -- High Data Intensive -- Facebook, GitHub -- Data Query and Manipulation Language
+
+    Monolithic Architecture:    UI  -----> Business Layer -----> Data Access Layer   ----------> Database   Example: IRCTC
+                                Problem: Highly not scalable
+    
+    Microservices:              UI  ----- MicroServicesOne -------- DB   Example:    Uber -- Driver has Different Functionalities
+                                                                                        Passenger has Differenet Functionalities  
+                                    ----- MicroServicesTwo -------- DB                  To Handle, Every thing becomes separate Microservices
+
+
+    Integration between two Microservices Contract Document helps to perform Integration
+    Contract Driven Testing. Using Stubs to mimic the functionalities
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+URL - Uniform Resource Locator which is used to locate the resouces in the web
+URI --  It is string identifies to identify the resources that are in string format
+
+Request compostion of Headers(Authorization) No Auth Basic, OAuth, Token + Parameters(Query Filters, Form, Path {{}} + EndPoints  (Server Name + Port + Resources)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Headers:
+--------
+
+    Content Type : Request Data Format
+    Accept: Response Data Format
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Parameters
+----------
+
+        Headers
+        Query   -- Applicable for Get, Post, Delete Preferabbly used by Get
+        Form    --  Body (Post, Put, Patch) Get does not use Form Parameter
+        Path    -- {{}}
+
+
+
+
